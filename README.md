@@ -33,6 +33,8 @@ would be if he enters a hedged liquidity provision position for an eth/matic pai
 
 4) D3 to create graphs showing the value of a position based on selected future price points.
 
+![img](C:\Users\ypeik\AppAcademy\JS Project\strategy_tracker\Untitled.png)
+
 ## Implementation Timeline
 
 ##### Friday:

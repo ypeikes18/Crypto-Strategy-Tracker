@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("function component() {\r\n    const element = document.createElement('div');\r\n  \r\n    // Lodash, currently included via a script, is required for this line to work\r\n    element.innerHTML = _.join(['Hello', 'webpack'], ' ');\r\n  \r\n    return element;\r\n  }\r\n  \r\n  document.body.appendChild(component());\n\n//# sourceURL=webpack://webpack-project/./src/index.js?");
+eval("\r\n\r\ndocument.addEventListener('DOMContentLoaded', function(){\r\n\r\n  let li = document.querySelector('li');\r\n\r\n  li.firstChild.innerText = 'testing';\r\n\r\n\r\n});\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://webpack-project/./src/index.js?");
 
 /***/ })
 

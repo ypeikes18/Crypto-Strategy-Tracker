@@ -4,7 +4,7 @@
 
 The average return from investing in the S&P 500 is around 10% annually. Beating the market in the 
 equity markets is notoriously hard - some would say impossible. Interestingly, in the crypto markets 
-there exists a lot of oppurtunity to earn yield on investments while hedging against the downside. 
+there exists a lot of opportunity to earn yield that beats the S&P while hedging against the downside. 
 This project will allow users to view the current and historical yields for some of these strategies. 
 
 
@@ -18,7 +18,8 @@ In Crypto Strategies Tracker, users will be able to:
 2) Select a specific strategy and view the description of the selected strategy along with links to the relevant exchanges
 
 3) The User can select different price points and APRs for the assets involved and see how 
-that effects the value of the position.
+arbitrary price movements would effect value of the position. For example the user can see what the value of his position 
+would be if he enters a hedged liquidity provision position for an eth/matic pair at the current prices and ether falls 25%.
 
 4) The user can view historical performence of the strategy on a graph. 
 
@@ -26,9 +27,11 @@ that effects the value of the position.
 
 1) Webpack to bundle the code
 
-2) npm
+2) npm to manage dependencies.
 
-3) D3 library for data visualization
+3) D3 library to create graphs showing the performence of a strategy over time.
+
+4) D3 to create graphs showing the value of a position based on selected future price points.
 
 ## Implementation Timeline
 

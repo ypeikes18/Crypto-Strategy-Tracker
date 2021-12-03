@@ -12,6 +12,11 @@ class Strategy{
 
 class cashAndCarry extends Strategy {
 
+    constructor(leverage = 1) {
+        super()
+        this.leverage = leverage;
+    }
+
 
 }
 

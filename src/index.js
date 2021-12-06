@@ -2,12 +2,33 @@
 
 document.addEventListener('DOMContentLoaded', function(){
 
+  const sushiApi = require('./scripts/amm_pool.js');
+  const chart = require('./scripts/chart.js');
+  const sushiPoolAddresses = require('./scripts/resources.js');
+
+
   let li = document.querySelector('li');
+  li.firstChild.innerText = 'result2';
 
-  li.firstChild.innerText = 'testing testing' ;
+
+  // var axis = d3.svg.axis()
+  //              .scale(widthScale);
+
+  
 
 
-  console.log('bob')
+  // class coingeckoRequest{
+
+  //   static url = 'https://api.coingecko.com/api/v3/simple/price?';
+
+  //   static getPrice(coin) {
+  //       let res = fetch(`${url}ids=${coin}vs_currencies=usd`)
+  //           .then(response => response = response.json())
+  //           .then(response => res = response)
+  //       return res;
+  //   }
+  // }
+
 });
 
 

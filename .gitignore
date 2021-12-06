@@ -1,7 +1,2 @@
-/node_modules
-.env
-main.js
-main.js.map
-main.css
-main.css.map
-
+.DS_Store
+node_modules/

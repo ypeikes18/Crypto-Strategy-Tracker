@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   let li = document.querySelector('li');
-  li.firstChild.innerText = 'result2';
+  li.firstChild.innerText = 'test';
+
 
 
   // var axis = d3.svg.axis()

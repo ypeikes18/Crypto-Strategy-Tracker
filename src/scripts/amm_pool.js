@@ -31,19 +31,30 @@ class AMMPool {
                                                   pair: this.address,}))
                         .then(result => result.json())
                         .then(result => result[1][0])
-                        .then(result => arr.push(result) );
+                        .then(result => arr.push(result));
         return arr;
     }
 
     lastXDays(x, type) { // gets historical data for the last x days
         let data  = [];
+        let resolved = [];
         let day;
         const startTime = this.now() - (x * this.secondsInDay) + 1;
         for(let i = startTime; i <= this.now(); i += this.secondsInDay) {
             day = this.getHistoricalData(type, i, i + this.secondsInDay - 1);
             data = data.concat(day);
         }
-        return data;
+        Promise.all(data)
+               .then(result => resolved.push(result.flat()));
+        return  resolved;
+    }
+
+    extractData(dataArray, type) {
+        let extracted = [];
+        (dataArray[0]).forEach((ele) => {
+            extracted.push(ele[type]);
+        });
+        return extracted;
     }
 
     now() { 
@@ -58,16 +69,10 @@ class AMMPool {
 
 const sushiApi = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
 
-let result2 = sushiApi.getHistoricalData(
-    'liquidity',
-    1638680177,
-    1638766577
-    );
-
-console.log(result2);
-
 let a = sushiApi.lastXDays(5, 'volume');
 console.log(a);
 
+// let volumes = sushiApi.extractData(a, 'Date');
 
 
+// console.log(volumes)

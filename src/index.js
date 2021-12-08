@@ -1,34 +1,21 @@
+import AMMPool from './scripts/amm_pool.js';
+import Chart from './scripts/chart.js';
+// require('./scripts/resources.js');
+
 
 
 document.addEventListener('DOMContentLoaded', function(){
-
-  const sushiApi = require('./scripts/amm_pool.js');
-  const chart = require('./scripts/chart.js');
-  const sushiPoolAddresses = require('./scripts/resources.js');
-
-
-  let li = document.querySelector('li');
-  li.firstChild.innerText = 'test';
-
-
-
-  // var axis = d3.svg.axis()
-  //              .scale(widthScale);
-
   
 
 
-  // class coingeckoRequest{
+  // const sushiApi2 = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
+  let obj = [{x: 1, y: 1},{x: 2, y: 4},{x: 3, y: 9},{x: 4, y: 16}]
+  let graph = new Chart(obj, 'Days', 'APR', 'Strategy');
 
-  //   static url = 'https://api.coingecko.com/api/v3/simple/price?';
 
-  //   static getPrice(coin) {
-  //       let res = fetch(`${url}ids=${coin}vs_currencies=usd`)
-  //           .then(response => response = response.json())
-  //           .then(response => res = response)
-  //       return res;
-  //   }
-  // }
+
+  graph.render();
+
 
 });
 

@@ -1,4 +1,4 @@
-class AMMPool {
+export class AMMPool {
 
     constructor(address) {
         this.address = address;
@@ -8,8 +8,20 @@ class AMMPool {
                         matic: 137, 
                         fantom: 250, 
                         arbitrum: 42161}
-    
     } 
+    //= "data:text/csv;charset=utf-8,";
+    createCSV(array){
+        let csv; 
+        for(let property in array[0][0]){csv += `${property},`}
+        csv = `${csv.slice(0,csv.length - 1)}\n`;
+        array[0].forEach(object => {
+            for(let key in object) {
+                csv += `${object[key]},`;
+                csv = `${csv.slice(0,csv.length - 1)}\n`; 
+            }
+        });
+        return csv;
+    }
 
     requestUrl(optionsHash){ //url to request historical liquidity or volume
         if(!optionsHash['chainID']) optionsHash['chainID'] = 1; 
@@ -41,7 +53,7 @@ class AMMPool {
         let day;
         const startTime = this.now() - (x * this.secondsInDay) + 1;
         for(let i = startTime; i <= this.now(); i += this.secondsInDay) {
-            day = this.getHistoricalData(type, i, i + this.secondsInDay - 1);
+            day =  this.getHistoricalData(type, i, i + this.secondsInDay - 1);
             data = data.concat(day);
         }
         Promise.all(data)
@@ -62,17 +74,30 @@ class AMMPool {
         now = Math.round(now / 1000);
         return Math.round(now);
     }
+    
+    getDailyRevenue(volumeArray, percentage = 0.0025){
+        const fees = [];
+        volumeArray.forEach(ele => fees.push(ele * percentage));
+        return fees;
+    }
+
 
     
 
+
+
 }
 
-const sushiApi = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
 
-let a = sushiApi.lastXDays(5, 'volume');
-console.log(a);
 
-// let volumes = sushiApi.extractData(a, 'Date');
+// const sushiApi = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
+
+// let a = sushiApi.lastXDays(30, 'volume');
+// console.log(a);
+
+// let b = sushiApi.createCSV(a);
+// console.log(b);
+// let volumes = sushiApi.extractData(a, 'USD_total_volume');
 
 
 // console.log(volumes)

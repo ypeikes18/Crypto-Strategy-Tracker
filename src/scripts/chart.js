@@ -24,13 +24,14 @@ export default class Chart {
                         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-        
-        
+        // tells d3 what format to expect the date in 
+        const parseDate = d3.timeParse("%s"); 
+
 
         const x = d3.scaleTime()
-                    .domain(d3.extent(this.data, d => d.Date))
+                    .domain(d3.extent(this.data, d => parseDate(d.Date))) //maybe try with return 
                     //   .domain([0,100])
-                      .range([ 0, width ]);
+                    .range([ 0, width ]);
             
         svg.append("g")
                .attr("transform", "translate(0," + height +")")
@@ -51,19 +52,16 @@ export default class Chart {
                .call(d3.axisLeft(y));
 
         
-        //creates the functions for extracting the data from each object and assiging to x or y
-        const xValue = d => d.Date;
-        const yValue = d => d.USD_total_volume;
-        
-        // creates a line object by passing both of the above functions
+
+        // creates a line object by passing in functions for mapping the data
         const lineMaker = d3.line()
-                    .x(xValue)
-                    .y(yValue);
+                    .x(d => parseDate(d.Date))
+                    .y(d => d.USD_total_volume);
 
         svg.append("path")
             .datum(this.data)
             .attr('d',lineMaker)
-            .attr("transform", "translate(" + 100 + "," + 100 + ")")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
             .style("fill", "none")
             .style("stroke-width", 1)
             .style("stroke", "red")

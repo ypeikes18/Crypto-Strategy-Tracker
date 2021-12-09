@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', async function(){
 
   const sushiApi = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
 
-  // let a = await sushiApi.lastXDays(30, 'volume');
-  // console.log(a);
+
 
   const showInfo = (e) => {
 
@@ -59,13 +58,16 @@ document.addEventListener('DOMContentLoaded', async function(){
 
 
   const strategiesBar = document.getElementById('strategies-bar');
-  strategiesBar.addEventListener('click', showInfo)      
+  strategiesBar.addEventListener('click', showInfo)   
+  
+  // let a = await sushiApi.lastXDays(30, 'volume');
+  // console.log(a);
 
   const sushiApi2 = new AMMPool('0xb5de0c3753b6e1b4dba616db82767f17513e6d4e');
-  let obj = [{Date: 1, USD_total_volume: 1},
-             {Date: 2, USD_total_volume: 4},
-             {Date: 3, USD_total_volume: 9},
-             {Date: 4, USD_total_volume: 2}];
+  let obj = [{Date: 1638500000, USD_total_volume: 1},
+             {Date: 1638600000, USD_total_volume: 4},
+             {Date: 1638700000, USD_total_volume: 9},
+             {Date: 1639800000, USD_total_volume: 2}];
 
   let graph = new Chart(obj, 'Days', 'APR', 'Strategy');
 

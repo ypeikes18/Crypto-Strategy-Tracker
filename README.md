@@ -18,7 +18,7 @@ In Crypto Strategies Tracker, users will be able to:
 1) Browse featured multi-part strategies. Click on buttons to view pros, cons, a description, and a dropdown to select a specific strategy from the category.
 
 
-2) The user can view historical performence of the strategy on a graph. 
+2) The user can view historical performence of the selected strategy on a graph. 
 
 3) The User can select different price points and APRs for the assets involved and see how 
 arbitrary price movements would effect value of the position. For example the user can see what the value of his position 

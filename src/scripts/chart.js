@@ -55,8 +55,8 @@ export default class Chart {
 
         // creates a line object by passing in functions for mapping the data
         const lineMaker = d3.line()
-                    .x(d => parseDate(d.Date))
-                    .y(d => d.USD_total_volume);
+                    .x(d => x(d.Date))
+                    .y(d => y(d.USD_total_volume));
 
         svg.append("path")
             .datum(this.data)

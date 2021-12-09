@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab&family=Sirin+Stencil&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="./dist/main.js"></script>
     <title>Project Name</title>
@@ -13,21 +14,25 @@
 
 <body>
 
-    <h1>Strategy Tracker<h1>
-        
-    <label id="categories-dropdown-label" for='categories-dropdown'> Categories
-        <select name="categories-dropdown" id="categories-dropdown" value="Categories">
-            <option value='delta-neutral'>Provide liquidity</option>
-            <option value='delta-neutral'>Delta Neutral</option>
-            <option value='delta-neutral'>Cash and carry</option>
+    <h1 id='title'>StrategyTracker</h1>
 
-        </select>
-    </label>
+    <div id='strategies-bar'>
+        <h2>Pick a strategy</h2>
+        <ul id="strategy-list">
+            <li id='provide-liquidity'>Provide liquidity</li>
+            <li id='cash-and-carry'>Cash and Carry</li>
+            <li id='hedged-liquidity'>Hedged liquidity</li>
+        </ul>
 
 
-    <div id="chart">
-       
     </div>
+
+    <div id='info'>
+
+
+    </div>
+        
+    <div id="chart"></div>
     
 </body>
 

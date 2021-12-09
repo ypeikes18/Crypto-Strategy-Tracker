@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', async function(){
     info.append(description, pros,cons,select);
 
 
-    let window.strategyInfo = strategyInfo;
     strategyInfo['pros'].forEach(ele => {
       const li = document.createElement('li');
       li.append(`${ele}`);
